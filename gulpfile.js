@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var imagemin = require('gulp-imagemin');
+var imagemin = require('gulp-pngmin');
 var spritesmith = require('gulp.spritesmith');
 
 var config={
