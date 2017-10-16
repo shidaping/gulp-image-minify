@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var imagemin = require('gulp-pngmin');
+var imagemin = require('gulp-image');
 var spritesmith = require('gulp.spritesmith');
 
 var config={
@@ -8,12 +8,14 @@ var config={
 }
 gulp.task('default',function(){
   return gulp.src(config.src)
-  .pipe(imagemin())
+  .pipe(imagemin({
+    optimizationLevel: 10,
+  }))
   .pipe(gulp.dest(config.dist));
 })
 gulp.task('sprite', function () {
   var spriteData = gulp.src('src/sprite/*')
-    .pipe(imagemin())
+    // .pipe(imagemin())
     .pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css'
